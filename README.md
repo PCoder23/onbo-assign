@@ -15,8 +15,6 @@ The Climate Change API is a Node.js Express backend that allows you to manage cl
   - [4. Fetch Records of a Particular Climate of a Particular Area](#4-fetch-records-of-a-particular-climate-of-a-particular-area)
   - [5. Calculate Climate Change](#5-calculate-climate-change)
 - [Seeding Data](#seeding-data)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
@@ -37,66 +35,76 @@ Before getting started, make sure you have the following software installed on y
    ```shell
    git clone https://github.com/your-username/climate-change-api.git
    ```
-   
-Create a .env file in the project root and set your environment variables. You can use .env.example as a template.
 
-Start the server:
+2. Install all the dependencies:
+    ```shell
+    npm install
+    ```    
 
-sql
-Copy code
-npm start
-The server will be running on http://localhost:3000.
+3. Create a `.env` file in the project root and set your environment variables. You can use `.env.example` as a template.
 
-API Endpoints
+4. Start the server:
+    ```shell
+    npm start
+    ```
+
+    The server will be running on http://localhost:5000.
+
+
+### API Endpoints
 1. Save Climate Data
-URL: /api/climate-data
-Method: POST
-Payload:
-json
-Copy code
-{
-  "climate": "hot" | "humid" | "rainy" | "cold",
-  "area_code": 111,
-  "temperature": 25,
-  "humidity": 88,
-  "chances_of_rain": 40
-}
-Response:
-json
-Copy code
-{
-  "success": true | false,
-  "error": "If success is false, this will be set else it will be null and it's value would be the reason why the saving of data failed",
-  "data": {
-    "id": "any_random_unique_id"
-  }
-}
+    - URL: `/api/climate-data/add-data`
+    - Method: POST
+    - Payload:
+    ```shell
+    {
+    "climate": "hot" | "humid" | "rainy" | "cold",
+    "area_code": 111,
+    "temperature": 25,
+    "humidity": 88,
+    "chances_of_rain": 40
+    }
+    ```
+    - Response:
+    ```shell
+    {
+    "success": true | false,
+    "error": "If success is false, this will be set else it will be null and it's value would be the reason why the saving of data failed",
+    "data": {
+        "id": "any_random_unique_id"
+    }
+    }
+    ```
+
 2. Fetch All Saved Records
-URL: /api/climate-data
-Method: GET
-Response: An array of climate data records
+    - URL: `/api/climate-data`
+    - Method: GET
+    - Response: An array of climate data records
+
 3. Fetch Records of a Particular Area
-URL: /api/climate-data/area/:area_code
-Method: GET
-Response: An array of climate data records for the specified area code
+    - URL: `/api/climate-data/area/:area_code`
+    - Method: GET
+    - Response: An array of climate data records for the specified area code
+
 4. Fetch Records of a Particular Climate of a Particular Area
-URL: /api/climate-data/area/:area_code/climate/:climate
-Method: GET
-Response: An array of climate data records for the specified area code and climate
+    - URL: `/api/climate-data/area/:area_code/climate/:climate`
+    - Method: GET
+    - Response: An array of climate data records for the specified area code and climate
+
 5. Calculate Climate Change
-URL: /api/climate-data/climate-change
-Method: POST
-Payload:
-json
-Copy code
-{
-  "from_climate": "hot" | "humid" | "rainy" | "cold",
-  "to_climate": "hot" | "humid" | "rainy" | "cold",
-  "area_code": xxx
-}
-Response:
-json
-Copy code
+    - URL: `/api/climate-data/climate-change`
+    - Method: POST
+    - Payload:
+    ```shell
+    {
+    "from_climate": "hot" | "humid" | "rainy" | "cold",
+    "to_climate": "hot" | "humid" | "rainy" | "cold",
+    "area_code": xxx
+    }
+    ```
+
+    - Response:
+```shell
 {
   "climateDelta": "hot -> cold",
   "temperatureDelta": -67,
@@ -104,11 +112,15 @@ Copy code
   "rainChancesDelta": 20,
   "climateChangeIndex": "(delta Temp * delta Humidity)/delta rainChances"
 }
-Please replace xxx with the actual area code you want to use when hitting the endpoints.
+```
 
-Seeding Data
-To seed data for testing, you can run the seed.js script:
+Please replace `xxx` with the actual area code you want to use when hitting the endpoints.
 
-Copy code
+### Seeding Data
+To seed data for testing, you can run the `seed.js` script:
+
+```shell
 node seed.js
+```
+
 This will insert sample data into your database.

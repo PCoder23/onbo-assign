@@ -10,7 +10,7 @@ const router = Router();
 router.get('/',getClimateData);
 
 // endpoint  "/api/climate-data" to add climate data
-router.post('/',addClimateData);
+router.post('/add-data',addClimateData);
 
 // endpoint  "/api/climate-data/area/:area" to get climate data by area code
 router.get('/area/:area',getClimateDataByArea);

@@ -78,9 +78,34 @@ exports.getClimateDataByAreaAndClimate = async (req, res) => {
 exports.getClimateChange = async (req, res) => {
     try {
         const {from_climate,to_climate,area_code} = req.body;
+
+        // check if area_code is valid,i.e., 0-999
+        if(from_climate!== "hot" && from_climate!== "humid" && from_climate!== "rainy" && from_climate!== "cold") {
+            return res.status(400).json({ success: false, error: "Invalid from_climate type",data:null });
+        }
+
+        // check if area_code is valid,i.e., 0-999
+        if(to_climate!== "hot" && to_climate!== "humid" && to_climate!== "rainy" && to_climate!== "cold") {
+            return res.status(400).json({ success: false, error: "Invalid to_climate type",data:null });
+        }
+
         const fromClimateData = await Climate.find({ area_code: area_code, climate: from_climate });
         const toClimateData = await Climate.find({ area_code: area_code, climate: to_climate });
 
+        // check if data is available for the given area code
+        if(fromClimateData.length===0 && toClimateData.length===0) {
+            return res.status(400).json({ success: false, error: "No data for the given area code",data:null });
+        }
+
+        // check if data is available for the given from_climate type
+        if(fromClimateData.length===0) {
+            return res.status(400).json({ success: false, error: "No data for the given from_climate type",data:null });
+        }
+
+        // check if data is available for the given to_climate type
+        if(toClimateData.length===0) {
+            return res.status(400).json({ success: false, error: "No data for the given to_climate type",data:null });
+        }
 
         // num of data from climate type from_climate
         const numFromClimate = fromClimateData.length;

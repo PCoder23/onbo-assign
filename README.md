@@ -1,13 +1,43 @@
-Climate Change API
-This is a Node.js Express backend for managing climate data and calculating climate change.
+# Climate Change API
 
-Getting Started
-Clone this repository to your local machine.
+The Climate Change API is a Node.js Express backend that allows you to manage climate data and calculate climate change based on various parameters such as temperature, humidity, and chances of rain. This README provides instructions on setting up and running the API.
 
-Install dependencies:
+## Table of Contents
 
-Copy code
-npm install
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the API](#running-the-api)
+- [API Endpoints](#api-endpoints)
+  - [1. Save Climate Data](#1-save-climate-data)
+  - [2. Fetch All Saved Records](#2-fetch-all-saved-records)
+  - [3. Fetch Records of a Particular Area](#3-fetch-records-of-a-particular-area)
+  - [4. Fetch Records of a Particular Climate of a Particular Area](#4-fetch-records-of-a-particular-climate-of-a-particular-area)
+  - [5. Calculate Climate Change](#5-calculate-climate-change)
+- [Seeding Data](#seeding-data)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Getting Started
+
+These instructions will help you set up and run the Climate Change API on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Before getting started, make sure you have the following software installed on your system:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+- [MongoDB](https://www.mongodb.com/)
+
+### Installation
+
+1. Clone this repository to your local machine:
+
+   ```shell
+   git clone https://github.com/your-username/climate-change-api.git
+   ```
+   
 Create a .env file in the project root and set your environment variables. You can use .env.example as a template.
 
 Start the server:

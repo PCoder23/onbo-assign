@@ -52,7 +52,7 @@ Before getting started, make sure you have the following software installed on y
 
 
 ### API Endpoints
-1. Save Climate Data
+# 1. Save Climate Data
     - URL: `/api/climate-data/add-data`
     - Method: POST
     - Payload:
@@ -76,22 +76,22 @@ Before getting started, make sure you have the following software installed on y
     }
     ```
 
-2. Fetch All Saved Records
+# 2. Fetch All Saved Records
     - URL: `/api/climate-data`
     - Method: GET
     - Response: An array of climate data records
 
-3. Fetch Records of a Particular Area
+# 3. Fetch Records of a Particular Area
     - URL: `/api/climate-data/area/:area_code`
     - Method: GET
     - Response: An array of climate data records for the specified area code
 
-4. Fetch Records of a Particular Climate of a Particular Area
+# 4. Fetch Records of a Particular Climate of a Particular Area
     - URL: `/api/climate-data/area/:area_code/climate/:climate`
     - Method: GET
     - Response: An array of climate data records for the specified area code and climate
 
-5. Calculate Climate Change
+# 5. Calculate Climate Change
     - URL: `/api/climate-data/climate-change`
     - Method: POST
     - Payload:

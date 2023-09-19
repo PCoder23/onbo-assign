@@ -1,3 +1,4 @@
+// importing required packages
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -24,7 +25,7 @@ app.get("/", (req, res) => {
 app.use('/api/climate-data',require('./routes/climateRoutes'));
 
 
-// connecting to mongodb database
+// connecting to mongodb database and starting the server
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {

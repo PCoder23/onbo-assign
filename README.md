@@ -48,7 +48,7 @@ Before getting started, make sure you have the following software installed on y
     npm start
     ```
 
-    The server will be running on http://localhost:5000.
+    The server will be running on http://localhost:5000 or at the port you have specified in the `.env` file.
 
 
 ### API Endpoints

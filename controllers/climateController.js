@@ -7,7 +7,6 @@ const Climate = require('../models/climateModel');
 // function to add climate data
 exports.addClimateData = async (req, res) => {
     const {climate,area_code,temperature,humidity,chances_of_rain} = req.body;
-    console.log(req.body);
     // check if climate is valid,i.e., hot,humid,rainy,cold
     if(climate!== "hot" && climate!== "humid" && climate!== "rainy" && climate!== "cold") {
         return res.status(400).json({ success: false, error: "Invalid climate type",data:null });

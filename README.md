@@ -38,7 +38,7 @@ Before getting started, make sure you have the following software installed on y
 
 2. Install all the dependencies:
     ```shell
-    npm install
+    npm i
     ```    
 
 3. Create a `.env` file in the project root and set your environment variables. You can use `.env.example` as a template.
